@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Order Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('bg2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            padding: 50px 20px;
+        }
+
+        .profile-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-details, .order-history {
+            margin-bottom: 30px;
+        }
+
+        .order-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-history th, .order-history td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .order-history th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .logout {
+            text-align: center;
+        }
+
+        .logout button {
+            padding: 10px 20px;
+            background-color: #ff4b96;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .logout button:hover {
+            background-color: #e60073;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="Beluga.svg" alt="Beluga Logo">
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <!-- Icons for Profile and Cart -->
+        <div class="icons-container">
+            <a class="icon" href="login_signup.html">
+                <i class="fas fa-user"></i>
+            </a>
+            <a href="#" class="icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <div class="menu-button">
+                        <div class="line"></div>
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#collection">Collection</a>
+                        <a href="index.html#about">About Us</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="black-strip" id="blackStrip"></div>
+    </header>
+
+    <div class="profile-container">
+        <h2>Welcome, User</h2>
+        <div class="profile-details">
+            <h3>Profile Details</h3>
+            <p><strong>Email:</strong> test@test.com</p>
+            <p><strong>Address:</strong> 123 Fashion Street, Fashion City</p>
+        </div>
+
+        <div class="order-history">
+            <h3>Your Order History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Item</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1001</td>
+                        <td>Men's Denim Jacket</td>
+                        <td>Shipped</td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>Women's Classic T-Shirt</td>
+                        <td>Delivered</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="logout">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <script src = "script.js"></script>
+    <script>
+        function logout() {
+            alert("You have been logged out.");
+            window.location.href = "login_signup.html"; // Redirect back to login page
+        }
+    </script>
+</body>
+</html>

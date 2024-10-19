@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign-Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('bg1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+            
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #e0cfad;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #b3a58a;
+        }
+
+        .link {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .link a {
+            color: #c4b597;
+            text-decoration: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Beluga.svg" alt="Beluga Logo">
+            </a>
+        </div>
+        <div class="search-bar">
+        </div>
+
+        <!-- Icons for Profile and Cart -->
+        <div class="icons-container">
+            <a href="#" class="icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-container">
+            <ul>
+                <li class="dropdown">
+                    <div class="menu-button">
+                        <div class="line"></div>
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#collection">Collection</a>
+                        <a href="index.html#about">About Us</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="black-strip" id="blackStrip"></div>
+    </header>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="link">
+            <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+        </div>
+    </div>
+
+    <div class="container" id="signupContainer" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="link">
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <script src = "script.js" ></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const signupContainer = document.getElementById('signupContainer');
+        const container = document.querySelector('.container');
+
+        // Handle Login
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate login validation (In actual cases, you would send this to the server for authentication)
+            if (email === "123@123.com" && password === "123") {
+                window.location.href = "profile.html"; // Redirect to profile page
+            } else {
+                alert("Invalid login credentials");
+            }
+        });
+
+        // Handle Sign-Up
+        signupForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Simulate sign-up process
+            alert('Sign-up successful! Please login.');
+            showLogin(); // Redirect to login after sign-up
+        });
+
+        function showSignUp() {
+            container.style.display = 'none';
+            signupContainer.style.display = 'block';
+        }
+
+        function showLogin() {
+            signupContainer.style.display = 'none';
+            container.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
